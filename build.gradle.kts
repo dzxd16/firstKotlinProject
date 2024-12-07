@@ -27,3 +27,15 @@ tasks.withType<KotlinCompile> {
 application {
     mainClass.set("MainKt")
 }
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21)) // Указываем, что используем JDK 21
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "21" // Здесь тоже указываем JDK 21
+    }
+}
